@@ -26,7 +26,6 @@
             $titles[] = $row['title'];
         }
     }
-    echo $movie_dict['Oppenheimer']['poster_link'];
     ?>
     <custom-navbar></custom-navbar>
     <table class='movie-list' border="0">
@@ -51,7 +50,7 @@
                 echo '<td>';
                 echo '<a href="php/movie_desc.php?title=' . $movie_dict[$titles[$i]]['title'] . '">';
                 echo '  <div class="movie-container">';
-                echo '    <img class="movie-poster" src="' . $movie_dict['Oppenheimer']['poster_link'] . '" alt="oppenheimer-poster" style="width: 95%; height: auto;">';
+                echo '    <img class="movie-poster" src="'.$movie_dict[$titles[$i]]['poster_link'].'" alt="oppenheimer-poster" style="width: 95%; height: auto;">';
                 echo '    <div class="movie-info">';
                 echo '      <span>' . $movie_dict[$titles[$i]]['title'] . '</span><br>';
                 echo '      <span>' . $movie_dict[$titles[$i]]['genre'] . '</span><br>';
