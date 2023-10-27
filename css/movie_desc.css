@@ -1,0 +1,46 @@
+.movie-container{
+    height: 80vh;
+    width: 60%;
+    margin:auto;
+    margin-top: 40px;
+}
+
+body{
+    background-color: #FAF1E4;
+}
+
+.movie-components{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.movie-info{
+    background-color: #CEDEBD;
+    line-height: 1.5;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.movie-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Style for the Book Now button */
+.book-now-button {
+    background-color: #435334; /* Blue background color */
+    color: white; /* White text color */    
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Style for the Book Now div container */
+.book-now-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add some spacing from the content above */
+    text-align: right;
+}
