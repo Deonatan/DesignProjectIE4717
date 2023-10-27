@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/book.css">
+    <script src="../js/book.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="column movie-poster">
+            <h2>Movie Poster</h2>
+            <p>load image from db</p>
+        </div>
+        <div class="column theatre-layout">
+            <div class="screen">Screen</div>
+            <div class="book-form">
+                <form id="grid-form" method="post" action="process.php" >
+                    <input type="hidden" id="clicked-box" name="clicked-box" value="">
+                    <div class="grid-container book-form">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
