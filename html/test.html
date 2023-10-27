@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            gap: 2px; 
+            width: 450px; 
+            height: 450px; 
+        }
+
+        .grid-item {
+            background-color: lightgray; /* Adjust the background color as needed */
+            border: 1px solid #000; /* Add a border for each box */
+            width: 50px; /* Make each box take up 100% of the grid cell */
+            height: 50px;
+            cursor: pointer; /* Change the cursor to a pointer to indicate clickability */
+            margin: 5px;
+            transition: background-color 0.3s; /* Smooth transition for color change */
+            position: relative; /* To position the text element */
+        }
+
+        .grid-item:hover {
+            background-color: lightblue; /* Change the background color on hover */
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px; /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+<body>
+    <form id="grid-form" method="post" action="process.php">
+        <input type="hidden" id="clicked-box" name="clicked-box" value="">
+
+        <div class="grid-container">
+        </div>
+    </form>
+
+    <script>
+        const gridForm = document.getElementById('grid-form');
+        const clickedBoxInput = document.getElementById('clicked-box');
+        const gridContainer = document.querySelector('.grid-container');
+
+        // Function to handle box click event
+        function handleBoxClick(event) {
+            const target = event.target;
+            if (target.classList.contains('grid-item')) {
+                const boxId = target.id;
+                clickedBoxInput.value = boxId;
+                gridForm.submit(); // Submit the form when a box is clicked
+            }
+        }
+
+        gridContainer.addEventListener('click', handleBoxClick);
+
+        for (let row = 1; row <= 8; row++) {
+            for (let col = 1; col <= 8; col++) {
+                const uniqueId = `${String.fromCharCode(64 + row)}-${col}`;
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+                gridItem.id = uniqueId;
+
+                // Create a text element to display the box ID
+                const boxLabel = document.createElement('span');
+                boxLabel.className = 'box-label';
+                boxLabel.textContent = uniqueId;
+                gridItem.appendChild(boxLabel);
+
+                gridContainer.appendChild(gridItem);
+            }
+        }
+    </script>
+</body>
+</html>
