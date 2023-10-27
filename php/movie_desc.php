@@ -16,23 +16,7 @@
     }
 
     $movie_query = "SELECT * FROM movie WHERE title like 'Oppenheimer'";
-    $movie_result = ($db->query($movie_query));
-    $items = array(); // Initialize an empty array to store the movie details
-
-    if ($movie_result) {
-        while ($row = mysqli_fetch_assoc($movie_result)) {
-            // Assign the retrieved values to the items array
-            $items["title"] = $row["title"];
-            $items["rating"] = $row["rating"];
-            $items["cast"] = $row["cast"];
-            $items["director"] = $row["director"];
-            $items["genre"] = $row["genre"];
-            $items["release_date"] = $row["release_date"];
-            $items["running_time"] = $row["running_time"];
-            $items["language"] = $row["language"];
-            $items["synopsis"] = $row["synopsis"];
-        }
-    }
+    $movie_data = $db->query($movie_query)->fetch_assoc();
 
     // foreach ($items as $key => $value) {
     //     echo $key . ": " . $value . "<br>";
@@ -48,19 +32,19 @@
                     <strong>Details</strong><br>
                     <div class="movie-details">
                         <div class="details-left">
-                            <span>Rating: <?php echo $items['rating'] ?></span><br>
-                            <span>Cast: <?php echo $items['cast'] ?></span><br>
-                            <span>Director: <?php echo $items['director'] ?></span><br>
-                            <span>Genre: <?php echo $items['genre'] ?></span><br>
+                            <span>Rating: <?php echo $movie_data['rating']?></span><br>
+                            <span>Cast: <?php echo $movie_data['cast']?></span><br>
+                            <span>Director: <?php echo $movie_data['director']?></span><br>
+                            <span>Genre: <?php echo $movie_data['genre']?></span><br>
                         </div>
                         <div class="details-right">
-                            <span>Release Date: <?php echo $items['release_date'] ?></span><br>
-                            <span>Running Time: <?php echo $items['running_time'] ?></span><br>
-                            <span>Language: <?php echo $items['language'] ?></span><br>
+                            <span>Release Date: <?php echo $movie_data['release_date']?></span><br>
+                            <span>Running Time: <?php echo $movie_data['running_time']?></span><br>
+                            <span>Language: <?php echo $movie_data['language']?></span><br>
                         </div>
                     </div><br>
                     <strong>Synopsis</strong><br>
-                    <span><?php echo $items['synopsis'] ?></span>
+                    <span><?php echo $movie_data['synopsis']?></span>
                     <div class="book-now-container">
                         <button class="book-now-button">Book Now</button>
                     </div>
