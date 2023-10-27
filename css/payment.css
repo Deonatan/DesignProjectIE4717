@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+}
+
+button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background 
+    color */
+    width: 180px;
+    margin-top: 20px;
+}
+
+/* Define the hover effect */
+button:hover {
+    background-color: #0056b3; /* New background color on hover */
+}
+
+.receipt {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.header {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-weight: bold;
+    color: #333;
+    padding-left: 40px;
+}
+
+.detail {
+    color: #009900;
+    padding-right: 40px;
+}
