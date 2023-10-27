@@ -1,0 +1,45 @@
+/* navbar-styles.css */
+.custom-navbar {
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-navbar li {
+    display: inline;
+    margin: 0 15px;
+    font-size: 18px;
+  }
+  
+  .custom-navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .custom-navbar a:hover {
+    color: #f39c12; /* Change the color on hover to your preference */
+    transition: color 0.3s;
+  }
+  
+  .custom-navbar h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .custom-navbar .logo {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+  }
+  
