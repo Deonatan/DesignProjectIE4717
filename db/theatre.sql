@@ -1,0 +1,5 @@
+CREATE TABLE theatre (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    capacity INT,
+    localtion VARCHAR(200),
+)
