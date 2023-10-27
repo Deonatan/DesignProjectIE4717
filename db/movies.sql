@@ -8,5 +8,6 @@ CREATE TABLE movie (
     release_date datetime NOT NULL,
     running_time int UNSIGNED NOT NULL,
     language VARCHAR(50) NOT NULL,
-    synopsis VARCHAR(500) NOT NULL
+    synopsis VARCHAR(500) NOT NULL,
+    poster_link VARCHAR(300) NOT NULL
 )

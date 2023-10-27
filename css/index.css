@@ -1,0 +1,54 @@
+.movie-poster{
+    margin:0px;
+}
+
+.movie-container{
+    height: 440px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    padding-top: 5px;
+}
+
+.movie-list{
+    margin: auto;
+    margin-top: 30px;
+}
+
+
+td {
+    padding: 5px; /* Optional cell padding */
+}
+
+.sort-row{
+    text-align: left;
+}
+
+.sort-select{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+/*Zoom Effect*/
+.movie-container {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s; /* Add a smooth transition effect */
+}
+
+.movie-container:hover {
+    transform: scale(1.04); /* Zoom in by 20% on hover */
+}
+
+.movie-poster {
+    width: 95%;
+    height: auto;
+}
+
+.movie-info {
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}

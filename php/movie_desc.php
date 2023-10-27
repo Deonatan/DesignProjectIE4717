@@ -14,8 +14,8 @@
     echo "Error: Could not connect to database.  Please try again later.";
     exit;
     }
-
-    $movie_query = "SELECT * FROM movie WHERE title like 'Oppenheimer'";
+    $requested_title = $_GET['title'];
+    $movie_query = "SELECT * FROM movie WHERE title like '$requested_title'";
     $movie_data = $db->query($movie_query)->fetch_assoc();
 
     // foreach ($items as $key => $value) {
