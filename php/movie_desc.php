@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="../css/movie_desc.css" rel="stylesheet" type="text/css" media="all">
-    <script type="text/javascript" src="../js/movie_desc.js"></script>
+    <!-- <script type="text/javascript" src="../js/movie_desc.js"></script> -->
 </head>
 <body>
     <?php
@@ -14,19 +14,17 @@
     echo "Error: Could not connect to database.  Please try again later.";
     exit;
     }
-    $requested_title = $_GET['title'];
-    $movie_query = "SELECT * FROM movie WHERE title like '$requested_title'";
+    $requested_id = $_GET['id'];
+    $movie_query = "SELECT * FROM movie WHERE id like '$requested_id'";
     $movie_data = $db->query($movie_query)->fetch_assoc();
-
     // foreach ($items as $key => $value) {
     //     echo $key . ": " . $value . "<br>";
-    // }    
-
+    // } 
     ?>
     <div class="movie-container">
         <div class="movie-components">
             <div class="movie-poster">
-                <img src="../public/oppenheimer-poster.jpg" style="height:500px;">
+                <img src=<?php echo $movie_data['poster_link']?> style="height:500px;">
             </div>
             <div class="movie-info">
                     <strong>Details</strong><br>
