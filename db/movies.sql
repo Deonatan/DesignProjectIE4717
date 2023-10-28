@@ -5,7 +5,7 @@ CREATE TABLE movie (
     cast VARCHAR(100) NOT NULL,
     director VARCHAR(50) NOT NULL,
     genre VARCHAR(50) NOT NULL,
-    release_date datetime NOT NULL,
+    release_date date NOT NULL,
     running_time int UNSIGNED NOT NULL,
     language VARCHAR(50) NOT NULL,
     synopsis VARCHAR(500) NOT NULL,
