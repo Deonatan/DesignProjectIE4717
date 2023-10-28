@@ -4,7 +4,8 @@ class Header extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = `
+    const type = this.getAttribute("type");
+    let content = `
     <style>
     .custom-navbar {
         background-color: #435334;
@@ -46,17 +47,35 @@ class Header extends HTMLElement {
       }
       
     </style>
-    <header>
-    <nav class="custom-navbar">
-    <img src="public/movieverse-logo.png">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/movies">Movies</a></li>
-      <li><a href="/theatres">Theatres</a></li>
-    </ul>
-  </nav>
-    </header>
-  `;
+    `;
+    if (type === "parent") {
+      content += `
+        <header>
+        <nav class="custom-navbar">
+        <img src="public/movieverse-logo.png">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/movies">Movies</a></li>
+          <li><a href="/theatres">Theatres</a></li>
+        </ul>
+      </nav>
+        </header>
+        `;
+    } else if (type === "child") {
+      content += `
+        <header>
+        <nav class="custom-navbar">
+        <img src="../public/movieverse-logo.png">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/movies">Movies</a></li>
+          <li><a href="/theatres">Theatres</a></li>
+        </ul>
+      </nav>
+        </header>
+        `;
+    }
+    this.innerHTML = content;
   }
 }
 
