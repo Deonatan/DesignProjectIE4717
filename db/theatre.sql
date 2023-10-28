@@ -1,5 +1,6 @@
 CREATE TABLE theatre (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
     capacity INT,
-    localtion VARCHAR(200),
+    location VARCHAR(200)
 )
