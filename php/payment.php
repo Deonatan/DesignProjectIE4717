@@ -9,12 +9,13 @@
 <body>
 <?php 
     // connect db
-    @ $db = new mysqli('localhost', 'root', '', 'mysql');
+    @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
     // check if post method
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Get the value of the "clicked-box" input field
-        $selectedSeat = $_POST["clicked-box"];
+        $selectedSeat = $_POST["selected-seat"];
+        $selectedTime = $_POST["selected-time"];
     }
     ?>
     <div>
@@ -26,7 +27,7 @@
             </div>
             <div class="item">
                 <div class="description">Selected time:</div>
-                <div class="detail"><?php ?></div>
+                <div class="detail"><?php echo $selectedTime?></div>
             </div>
             <div class="item">
                 <div class="description">Selected seat:</div>

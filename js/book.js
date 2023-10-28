@@ -1,22 +1,43 @@
 const gridForm = document.getElementById("grid-form");
-const clickedBoxInput = document.getElementById("clicked-box");
+const selectedSeatInput = document.getElementById("selected-seat");
+const selectedTimeInput = document.getElementById("selected-time");
 const gridContainer = document.querySelector(".grid-container");
 const paymentButton = document.querySelector(".payment-button");
+const timeTable = document.querySelector(".time-schedule-container");
+const displaySeat = document.getElementById("display-seat");
+const displayTime = document.getElementById("display-time");
 
-// Function to handle box click event
-function handleBoxClick(event) {
+// Function to handle seat click event
+function handleSeatClick(event) {
   const target = event.target;
   if (target.classList.contains("grid-item")) {
     const boxId = target.id;
-    clickedBoxInput.value = boxId;
-
+    selectedSeatInput.value = boxId;
     // Change the background color of the clicked box
-    target.style.backgroundColor = "lightblue";
-    console.log(clickedBoxInput.value);
+    if (target.style.backgroundColor == "lightgrey") {
+      target.style.backgroundColor = "lightblue";
+    } else {
+      target.style.backgroundColor = "lightgrey";
+    }
+    // update display seat
+    displaySeat.textContent = "Seat: " + boxId;
+    console.log(selectedSeatInput.value);
   }
 }
 
-gridContainer.addEventListener("click", handleBoxClick);
+// Function to handle time click event
+function handleTimeClick(event) {
+  const target = event.target;
+  const timeId = target.id;
+  target.style.backgroundColor = "lightgreen";
+  selectedTimeInput.value = timeId;
+  // update display time
+  displayTime.textContent = "Time: " + timeId;
+  console.log(selectedTimeInput.value);
+}
+
+gridContainer.addEventListener("click", handleSeatClick);
+timeTable.addEventListener("click", handleTimeClick);
 
 for (let row = 1; row <= 8; row++) {
   for (let col = 1; col <= 8; col++) {
