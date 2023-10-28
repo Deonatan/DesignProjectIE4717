@@ -14,10 +14,10 @@ function handleSeatClick(event) {
     const boxId = target.id;
     selectedSeatInput.value = boxId;
     // Change the background color of the clicked box
-    if (target.style.backgroundColor == "lightgrey") {
+    if (target.style.backgroundColor == "lightgray") {
       target.style.backgroundColor = "lightblue";
     } else {
-      target.style.backgroundColor = "lightgrey";
+      target.style.backgroundColor = "lightgray";
     }
     // update display seat
     displaySeat.textContent = "Seat: " + boxId;
@@ -29,7 +29,11 @@ function handleSeatClick(event) {
 function handleTimeClick(event) {
   const target = event.target;
   const timeId = target.id;
-  target.style.backgroundColor = "lightgreen";
+  if (target.style.backgroundColor == "lightgray") {
+    target.style.backgroundColor = "lightgreen";
+  } else {
+    target.style.backgroundColor = "lightgray";
+  }
   selectedTimeInput.value = timeId;
   // update display time
   displayTime.textContent = "Time: " + timeId;
@@ -45,6 +49,7 @@ for (let row = 1; row <= 8; row++) {
     const gridItem = document.createElement("div");
     gridItem.className = "grid-item";
     gridItem.id = uniqueId;
+    gridItem.style = "background-color: lightgray";
     //gridItem.setAttribute("name", uniqueId);
 
     // Create a text element to display the box ID

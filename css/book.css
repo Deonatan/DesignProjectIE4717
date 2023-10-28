@@ -117,12 +117,13 @@ body{
 .time-schedule{
     width: 100px; /* Set the width */
     height: 15px; /* Set the height */
-    background-color: #f0f0f0; /* Set the background color */
+    background-color: lightgray; /* Set the background color */
     border: 1px solid #000; /* Add a border */
     padding: 10px; /* Add some padding inside the div */
     border-radius: 5px;
     margin: 12px;
     display: inline-block;
+    cursor: pointer;
 }
 
 img {

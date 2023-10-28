@@ -40,7 +40,7 @@
                         if (empty($start_time)) {
                             continue; 
                         }
-                        echo "<div id=$start_time-$end_time class='time-schedule'>$start_time-$end_time</div>";
+                        echo "<div id=$start_time-$end_time class='time-schedule' style='background-color:lightgray'>$start_time-$end_time</div>";
                     }
                 ?>
                 </div>
