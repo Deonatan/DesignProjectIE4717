@@ -20,7 +20,7 @@ td {
     padding: 5px; /* Optional cell padding */
 }
 
-.sort-row{
+.filter-row{
     text-align: left;
 }
 
@@ -51,4 +51,15 @@ td {
 
 a{
     text-decoration: none;
+}
+
+/*Filter Container*/
+.filter-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
+
+.theatre-select{
+    margin-left: 30px;
+    margin-bottom: 20px;
 }

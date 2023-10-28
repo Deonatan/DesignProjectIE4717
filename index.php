@@ -16,13 +16,36 @@
     exit;
     }
 
+    #Get Selected Sorting Method
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sort_type = $_POST['sort-select'];
+        $selected_theatre = $_POST['theatre-select'];
     }else{
         $sort_type = 'default';
+        $selected_theatre = 'all';
     }
 
-    $movie_list_query = "SELECT * FROM movie";
+    #Retrieve Showing Movies Based of Selected Theatre
+    $showing_movie_id_query = "SELECT movie_id FROM movie_schedule";
+    if ($selected_theatre != 'all') {
+        // If a specific theater is selected, add a WHERE clause to filter by theatre_id
+        $showing_movie_id_query .= " WHERE theatre_id = " . intval($selected_theatre); // Ensure $selected_theatre is properly sanitized.
+    }
+    $showing_movie_id_result = $db->query($showing_movie_id_query);
+    $showing_movie_id_result = $db->query($showing_movie_id_query);
+    if ($showing_movie_id_result) {
+        $movie_ids = array(); // Create an array to store the movie IDs
+        while ($row = $showing_movie_id_result->fetch_assoc()) {
+            $movie_ids[] = $row['movie_id'];
+        }
+    }
+
+    // Convert the array of movie IDs to a comma-separated string
+    $movie_id_list = implode(', ', $movie_ids);
+
+    #Query Movie based on showing movies 
+    // $movie_list_query = "SELECT * FROM movie";
+    $movie_list_query = "SELECT * FROM movie WHERE id IN ($movie_id_list)";
     // Modify the query based on the selected sort type
     switch ($sort_type) {
         case 'alphabetical':
@@ -33,6 +56,7 @@
             break;
         // For the 'default' case, you don't need to add an ORDER BY clause
     }
+
 
     $movie_list_result = $db->query($movie_list_query);
     $movie_dict = array();
@@ -46,20 +70,48 @@
     ?>
     <custom-navbar></custom-navbar>
     <table class='movie-list' border="0">
-    <tr>
-      <th colspan="3" class="sort-row">
-        <div class="sort-select">
-        <form id='sort-form'
-        method='POST' onchange=submitForm()>
-            <label for="sort-select">Sort by: </label>
-            <select id="sort-select" name='sort-select'>
-                <option value="default" <?php if ($sort_type == 'default') echo 'selected'; ?>>Default</option>
-                <option value="alphabetical" <?php if ($sort_type == 'alphabetical') echo 'selected'; ?>>Alphabetical</option>
-                <option value="rating" <?php if ($sort_type == 'rating') echo 'selected'; ?>>Rating</option>
-            </select>
-        </form>
-        </div>
-      </th>
+        <tr>
+            <td  colspan="2" class="filter-row">
+            <form id='sort-form'
+            method='POST' onchange="submitForm()" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+            <div class='filter-container'>
+                <div class="sort-select">
+                <label for="sort-select">Sort by: </label>
+                <select id="sort-select" name='sort-select'>
+                    <option value="default" <?php if ($sort_type == 'default') echo 'selected'; ?>>Default</option>
+                    <option value="alphabetical" <?php if ($sort_type == 'alphabetical') echo 'selected'; ?>>Alphabetical</option>
+                    <option value="rating" <?php if ($sort_type == 'rating') echo 'selected'; ?>>Rating</option>
+                </select>
+                </div>
+                <div class="theatre-select">
+                <label for="theatre-select">Select Theatre: </label>
+                <select id="theatre-select" name='theatre-select'>
+                    <option value="all" <?php if ($selected_theatre == 'all') echo 'selected'; ?>>All Theatre</option>
+                    <?php
+                    $theatre_list_query = "SELECT * FROM theatre" ;
+                    $theatre_list_result = $db->query($theatre_list_query);
+                    $theatre_dict = array();
+                    $theatre_name = array();
+                    if ($theatre_list_result){
+                        while ($row = $theatre_list_result->fetch_assoc()){
+                            $theatre_dict[$row['name']] = $row;
+                            $theatre_name[] = $row['name'];
+                        }
+                    }
+                    foreach ($theatre_name as $name) {
+                        $theatre_id = $theatre_dict[$name]['id']; // Get the theater ID from the $theatre_dict array
+                        echo '<option value="' . $theatre_id . '" ';
+                        if ($selected_theatre == $theatre_id) {
+                            echo 'selected';
+                        }
+                        echo '>' . $name . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            </div>
+            </form>
+        </td>
     </tr>
         <?php
         $i = 0;

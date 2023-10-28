@@ -44,8 +44,9 @@
                     <strong>Synopsis</strong><br>
                     <span><?php echo $movie_data['synopsis']?></span>
                     <div class="book-now-container">
-                        <button class="book-now-button">Book Now</button>
+                        <a href="book.php?movie_id=<?php echo $requested_id; ?>" class="book-now-button">Book Now</a>
                     </div>
+
             </div>
         </div>
     </div>

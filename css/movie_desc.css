@@ -44,3 +44,7 @@ body{
     margin-top: 20px; /* Add some spacing from the content above */
     text-align: right;
 }
+
+a{
+    text-decoration: none;
+}
