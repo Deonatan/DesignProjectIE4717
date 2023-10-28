@@ -8,6 +8,12 @@
 </head>
 <body>
 <?php 
+    session_start();
+    if (!isset($_SESSION["user_id"])) {
+        // User is not logged in, redirect to the login page or show an access denied message.
+        header("Location: ../html/login.html");
+        exit();
+    }
     // connect db
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
