@@ -20,7 +20,7 @@
         if ($response){
             session_start();
             $_SESSION["user_id"] = $response["id"];
-            echo "<div class='status-container'><h1>Login Successful!</h1><p>Welcome to movieverse!</p></div>";
+            echo "<div class='wrapper'><div class='status-container'><h1>Login Successful!</h1><p>Welcome to movieverse!</p></div></div>";
         } else {
             echo "invalid";
         }

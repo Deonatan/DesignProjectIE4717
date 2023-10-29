@@ -17,7 +17,7 @@
         $insertQuery = "INSERT INTO users (username, email, user_password) VALUES ('$username','$email', '$password')";
 
         if ($db->query($insertQuery) === TRUE) {
-            echo "<div class='status-container'><h1>Registration Successful!</h1><p>Your have successfully registered.</p><p>Welcome to movieverse!</p></div>";
+            echo "<div class='wrapper'><div class='status-container'><h1>Registration Successful!</h1><p>Your have successfully registered.</p><p>Welcome to movieverse!</p></div></div>";
         } else {
             echo "Error: " . $insertQuery . "<br>" . $db->error;
         }

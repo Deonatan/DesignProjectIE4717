@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/book.css">
     <script src="../js/book.js" type="text/javascript" defer></script>
+    <script src="../js/custom-navbar.js" type="text/javascript" ></script>
+
 </head>
 <body>
     <?php
@@ -25,9 +27,11 @@
         }
 
     ?>
+    <custom-navbar type="child"></custom-navbar>
+    <div class="wrapper">
     <div class="container">
         <div class="column movie-poster">
-            <img src="<?php echo $movie_details["poster_link"]?>">
+            <img class="poster-image" src="<?php echo $movie_details["poster_link"]?>">
             
         </div>
         <div class="column theatre-layout">
@@ -64,6 +68,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

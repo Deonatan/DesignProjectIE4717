@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/payment.css">
+    <script src="../js/custom-navbar.js" type="text/javascript" ></script>
     <title>Payment Page</title>
 </head>
 <body>
@@ -24,6 +25,7 @@
         $selectedTime = $_POST["selected-time"];
     }
     ?>
+    <custom-navbar type="child"></custom-navbar>
     <div>
         <img src="../public/paymentqr.png" alt="payment qr">
         <br>

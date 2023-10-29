@@ -1,7 +1,9 @@
-body{
+.wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Add relative positioning to the wrapper */
+    z-index: 1;
 }
 .container {
     display: flex;
@@ -126,7 +128,7 @@ body{
     cursor: pointer;
 }
 
-img {
+.poster-image {
     height: 100%;
     width: 100%;
 }
