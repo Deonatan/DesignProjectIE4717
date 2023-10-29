@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Another Page</title>
+    <title>Home</title>
     <script src="js/custom-navbar.js" type="text/javascript" defer></script>
     <script src="js/index.js" type="text/javascript" defer></script>
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
@@ -32,7 +32,6 @@
         $showing_movie_id_query .= " WHERE theatre_id = " . intval($selected_theatre); // Ensure $selected_theatre is properly sanitized.
     }
     $showing_movie_id_result = $db->query($showing_movie_id_query);
-    $showing_movie_id_result = $db->query($showing_movie_id_query);
     if ($showing_movie_id_result) {
         $movie_ids = array(); // Create an array to store the movie IDs
         while ($row = $showing_movie_id_result->fetch_assoc()) {
@@ -44,7 +43,6 @@
     $movie_id_list = implode(', ', $movie_ids);
 
     #Query Movie based on showing movies 
-    // $movie_list_query = "SELECT * FROM movie";
     $movie_list_query = "SELECT * FROM movie WHERE id IN ($movie_id_list)";
     // Modify the query based on the selected sort type
     switch ($sort_type) {
