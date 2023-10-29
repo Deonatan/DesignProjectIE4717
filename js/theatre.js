@@ -1,4 +1,8 @@
-function viewMovies(theatreId) {
-    // Redirect to a new page or perform an action to show movies for the selected theater
-    window.location.href = '../index.php?theatre=' + theatreId;
+function submitForm(theatreId) {
+    const form = document.getElementById('theatre-form');
+    const theatreInput = document.getElementById('theatre-select-input')
+    const sortInput = document.getElementById('sort-select-input')
+    sortInput.value = 'default'
+    theatreInput.value = theatreId
+    form.submit();
 }

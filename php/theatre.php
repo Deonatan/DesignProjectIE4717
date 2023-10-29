@@ -27,12 +27,11 @@
         }
     }
 
-    // foreach ($theatre_name as $name) {
-    //     echo $theatre_dict[$name]['location'] . "<br>";
-    // }
-
     ?>
     <custom-navbar></custom-navbar>
+    <form id="theatre-form" method="POST" action="../index.php">
+    <input type="hidden" name="theatre-select" id='theatre-select-input' value="">
+    <input type="hidden" name="sort-select"  id ='sort-select-input' value="">
     <table class='theatre-table' border="1">
         <tr class='centered-text'>
             <td>Theatre Name</td>
@@ -40,13 +39,14 @@
         </tr>
         <?php
         foreach ($theatre_dict as $theatre) {
-            echo '<tr class="theatre-row" onclick="viewMovies(' . $theatre['id'] . ')">';
-            echo '<td>' . $theatre['name'] . '</td>';
-            echo '<td>' . $theatre['location'] . '</td>';
+            echo '<tr class="theatre-row">';
+            echo '<td onclick=submitForm(' . $theatre['id'] . ')>' . $theatre['name'] . '</td>';
+            echo '<td onclick=submitForm(' . $theatre['id'] . ')>' . $theatre['location'] . '</td>';
             echo '</tr>';
     }
-    ?>
+        ?>
     </table>
+    </form>
 </body>
 </html>
 
