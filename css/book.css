@@ -1,7 +1,9 @@
-body{
+.wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Add relative positioning to the wrapper */
+    z-index: 1;
 }
 .container {
     display: flex;
@@ -30,12 +32,12 @@ body{
     height: 85vh; 
 }
 
+/*
 .movie-poster {
-    flex: 1; /* Column 1 takes up 2 times the available space */
 }
+*/
 
 .theatre-layout {
-    flex: 2; /* Column 2 takes up 1 times the available space */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
@@ -50,6 +52,7 @@ body{
     width: 80%; /* Adjust the width as needed */
     height: 15px; /* Adjust the height as needed */
     text-align: center;
+    margin-top: 12px;
     margin-bottom: 20px;
 }
 
@@ -114,13 +117,19 @@ body{
 }
 
 .time-schedule{
-    flex:1;
-    width: 110px; /* Set the width */
+    width: 100px; /* Set the width */
     height: 15px; /* Set the height */
-    background-color: #f0f0f0; /* Set the background color */
+    background-color: lightgray; /* Set the background color */
     border: 1px solid #000; /* Add a border */
     padding: 10px; /* Add some padding inside the div */
     border-radius: 5px;
     margin: 12px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.poster-image {
+    height: 100%;
+    width: 100%;
 }
 
