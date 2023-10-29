@@ -20,12 +20,17 @@ body{
     line-height: 1.5;
     padding: 20px;
     margin-left: 20px;
+    height:460px;
 }
 
 .movie-details{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+
+.details-right{
+    margin-left: 50px;
 }
 
 /* Style for the Book Now button */
