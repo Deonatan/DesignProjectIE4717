@@ -3,10 +3,11 @@
 <head>
   <title>Theatre List</title>
   <script src="../js/custom-navbar.js" type="text/javascript" defer></script>
-  <script src="../js/theatre.js" type="text/javascript" defer></script>
-  <script src="../js/custom-footer.js" type="text/javascript" defer></script>
-  <link href="../css/theatre.css" rel="stylesheet" type="text/css" media="all">
-  <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
+    <script src="../js/theatre.js" type="text/javascript" defer></script>
+    <script src="../js/custom-footer.js" type="text/javascript" defer></script>
+    <link href="../css/theatre.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
+
 </head>
 <body>
     <?php
@@ -50,7 +51,7 @@
         ?>
     </table>
     </form>
-    <div>
+    </div>
     <custom-footer></custom-footer>
 </body>
 </html>

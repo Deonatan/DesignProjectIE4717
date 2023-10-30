@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link href="../css/movie_desc.css" rel="stylesheet" type="text/css" media="all">
     <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
-    <!-- <script type="text/javascript" src="../js/movie_desc.js"></script> -->
     <script src="../js/custom-navbar.js" type="text/javascript" defer></script>
     <script src="../js/custom-footer.js" type="text/javascript" defer></script>
 </head>
