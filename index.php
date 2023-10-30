@@ -3,6 +3,7 @@
 <head>
     <title>Home</title>
     <script src="js/custom-navbar.js" type="text/javascript" defer></script>
+    <script src="js/custom-footer.js" type="text/javascript" defer></script>
     <script src="js/index.js" type="text/javascript" defer></script>
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -136,5 +137,6 @@
         }
         ?>
   </table>
+  <custom-footer></custom-footer>
 </body>
 </html>
