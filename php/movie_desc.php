@@ -53,7 +53,7 @@
     <div class="movie-container">
         <div class="movie-components">
             <div class="movie-poster">
-                <img src=<?php echo $movie_data['poster_link']?> style="height:500px;">
+            <img src="<?php echo '../' . $movie_data['poster_link']; ?>" style="height:500px;">
             </div>
             <div class="movie-info">
                     <strong>Details</strong><br>
