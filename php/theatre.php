@@ -4,7 +4,9 @@
   <title>Theatre List</title>
   <script src="../js/custom-navbar.js" type="text/javascript" defer></script>
   <script src="../js/theatre.js" type="text/javascript" defer></script>
+  <script src="../js/custom-footer.js" type="text/javascript" defer></script>
   <link href="../css/theatre.css" rel="stylesheet" type="text/css" media="all">
+  <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
     <?php
@@ -29,6 +31,7 @@
 
     ?>
     <custom-navbar></custom-navbar>
+    <div class='container'>
     <form id="theatre-form" method="POST" action="../index.php">
     <input type="hidden" name="theatre-select" id='theatre-select-input' value="">
     <input type="hidden" name="sort-select"  id ='sort-select-input' value="">
@@ -47,6 +50,8 @@
         ?>
     </table>
     </form>
+    <div>
+    <custom-footer></custom-footer>
 </body>
 </html>
 

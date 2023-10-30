@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link href="../css/movie_desc.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
     <!-- <script type="text/javascript" src="../js/movie_desc.js"></script> -->
+    <script src="../js/custom-navbar.js" type="text/javascript" defer></script>
+    <script src="../js/custom-footer.js" type="text/javascript" defer></script>
 </head>
 <body>
+    <custom-navbar></custom-navbar>
     <?php
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
@@ -73,9 +77,9 @@
                     <div class="book-now-container">
                         <a href="book.php?movie_id=<?php echo $requested_id; ?>" class="book-now-button">Book Now</a>
                     </div>
-
             </div>
         </div>
     </div>
+    <custom-footer></custom-footer>
 </body>
 </html>
