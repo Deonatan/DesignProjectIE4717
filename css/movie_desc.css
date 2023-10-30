@@ -1,5 +1,5 @@
 .movie-container{
-    height: 80vh;
+    /* height: 80vh; */
     width: 60%;
     margin:auto;
     margin-top: 40px;
@@ -20,7 +20,7 @@ body{
     line-height: 1.5;
     padding: 20px;
     margin-left: 20px;
-    height:460px;
+    /* height:460px; */
 }
 
 .movie-details{

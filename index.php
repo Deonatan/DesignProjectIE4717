@@ -5,7 +5,8 @@
     <script src="js/custom-navbar.js" type="text/javascript" defer></script>
     <script src="js/custom-footer.js" type="text/javascript" defer></script>
     <script src="js/index.js" type="text/javascript" defer></script>
-  <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/global.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
     <?php
@@ -85,7 +86,7 @@
                 <div class="theatre-select">
                 <label for="theatre-select">Select Theatre: </label>
                 <select id="theatre-select" name='theatre-select'>
-                    <option value="all" <?php if ($selected_theatre == 'all') echo 'selected'; ?>>All Theatre</option>
+                    <option value="all" <?php if ($selected_theatre == 'all') echo 'selected'; ?>>All MovieVerse Cinema</option>
                     <?php
                     $theatre_list_query = "SELECT * FROM theatre" ;
                     $theatre_list_result = $db->query($theatre_list_query);
