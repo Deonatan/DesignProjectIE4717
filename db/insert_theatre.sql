@@ -1,5 +1,5 @@
 INSERT INTO theatre (name, capacity, location) VALUES
-    ('Theatre A', 64, '123 Main Street, City A'),
-    ('Theatre B', 64, '456 Elm Street, City B'),
-    ('Theatre C', 64, '789 Oak Street, City C'),
-    ('Theatre D', 64, '101 Pine Street, City D');
+    ('MovieVerse-Jurong', 64, '123 Main Street, City A'),
+    ('MovieVerse-Changi', 64, '456 Elm Street, City B'),
+    ('MovieVerse-Orchard', 64, '789 Oak Street, City C'),
+    ('MovieVerse-NTU', 64, '101 Pine Street, City D');
