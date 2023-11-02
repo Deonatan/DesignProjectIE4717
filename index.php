@@ -176,9 +176,9 @@
                 sort($genres_array);
                 // echo implode(', ', $genres_array);
                 ?>
-                    <div class="dropdown">
-                    <button class="dropbtn">Genre</button>
-                        <div class="dropdown-content">
+                    <div class="dropdown-genre">
+                    <button class="dropbtn-genre">Genre</button>
+                        <div class="dropdown-genre-content">
                         <?php
                         // if (in_array('Action', $requested_genre_arr)){
                         //     echo "Found";

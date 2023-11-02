@@ -79,7 +79,7 @@
                     <strong>Playing At</strong><br>
                     <span><?php echo $theatreNamesString ?></span>
                     <div class="book-now-container">
-                        <a href="book.php?movie_id=<?php echo $requested_id; ?>" class="book-now-button">Book Now</a>
+                        <a href="book_seat.php?movie_id=<?php echo $requested_id; ?>" class="book-now-button">Book Now</a>
                     </div>
             </div>
         </div>
