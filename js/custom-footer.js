@@ -8,8 +8,8 @@ class Footer extends HTMLElement {
       let content = `
       <style>
       .footer-container{
-        margin-top:30px;
-        background-color: #2c3623;
+        // margin-top:30px;
+        background-color: #060E2A;
         text-align:center;
         color:white;
         height:50px;

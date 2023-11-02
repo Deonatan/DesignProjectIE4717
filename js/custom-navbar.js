@@ -95,8 +95,8 @@ class Header extends HTMLElement {
     <body>
         <div class="navbar">
         <img class="logo" src="${path}public/movieverse-logo.png"/>
-        <a href="${path}">Movies</a>
-        <a href="#news">Theatre</a>
+        <a href="${path}index.php">Movies</a>
+        <a href="${path}php/theatre.php">Theatre</a>
         <div class="dropdown">
             <button class="dropbtn">    
             <i class="fa fa-caret-down"></i>

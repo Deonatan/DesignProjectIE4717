@@ -31,7 +31,7 @@
     }
 
     ?>
-    <custom-navbar></custom-navbar>
+    <custom-navbar type='child'></custom-navbar>
     <div class='container'>
     <form id="theatre-form" method="POST" action="../index.php">
     <input type="hidden" name="theatre-select" id='theatre-select-input' value="">

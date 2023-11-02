@@ -2,8 +2,10 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/book_seat.css">
+    <link href="../css/global.css" rel="stylesheet" type="text/css" media="all">
     <script src="../js/book_seat.js" type="text/javascript" defer></script>
     <script src="../js/custom-navbar.js" type="text/javascript" ></script>
+    <script src="../js/custom-footer.js" type="text/javascript" defer></script>
     <title>Movie Seat Booking</title>
 </head>
 <body>
@@ -14,7 +16,10 @@
         @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
         // retrieve from req
-        $movie_id = 1;
+        if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $movie_id = $_GET['movie_id'];
+        }
+        // $movie_id = 1;
 
         //get movie details
         $get_details = "SELECT * FROM movie WHERE id=".$movie_id;
@@ -163,5 +168,6 @@
         </div>
     </div>
     </div>
+    <custom-footer></custom-footer>
 </body>
 </html>

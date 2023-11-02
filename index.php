@@ -120,88 +120,91 @@
         }
     }
     ?>
-    <custom-navbar></custom-navbar>
-    <table class='movie-list' border="0">
+    <custom-navbar type='parent'></custom-navbar>
+    <div class='wrapper'>
+    <table class='movie-list' border='0'>
         <tr>
-            <td  colspan="3" class="filter-row">
-            <form id='sort-form'
-            method='POST' 
-            action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class='filter-container'>
-                <div>
-                    <input type="hidden" id="selected-status" name="selected-status" value="">
-                    <button onclick="submitForm(this.value)" value='default' id='showing-button'>Showing</button>
-                    <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button'>Coming Soon</button>
-                </div>
-                <div class="sort-select">
-                <label for="sort-select">Sort by: </label>
-                <select id="sort-select" name='sort-select'>
-                    <option value="default" <?php if ($sort_type == 'default') echo 'selected'; ?>>Default</option>
-                    <option value="alphabetical" <?php if ($sort_type == 'alphabetical') echo 'selected'; ?>>Alphabetical</option>
-                    <option value="rating" <?php if ($sort_type == 'rating') echo 'selected'; ?>>Rating</option>
-                </select>
-                </div>
-                <div class="theatre-select">
-                <label for="theatre-select">Select Cinema: </label>
-                <select id="theatre-select" name='theatre-select'>
-                    <option value="default" <?php if ($requested_cinema == 'default') echo 'selected'; ?>>All MovieVerse Cinema</option>
-                    <?php
-                    $theatre_list_query = "SELECT * FROM theatre" ;
-                    $theatre_list_result = $db->query($theatre_list_query);
-                    $theatre_dict = array();
-                    $theatre_name = array();
-                    if ($theatre_list_result){
-                        while ($row = $theatre_list_result->fetch_assoc()){
-                            $theatre_dict[$row['name']] = $row;
-                            $theatre_name[] = $row['name'];
-                        }
-                    }
-                    foreach ($theatre_name as $name) {
-                        $theatre_id = $theatre_dict[$name]['id']; // Get the theater ID from the $theatre_dict array
-                        echo '<option value="' . $theatre_id . '" ';
-                        if ($requested_cinema == $theatre_id) {
-                            echo 'selected';
-                        }
-                        echo '>' . $name . '</option>';
-                    }
-                    ?>
-                </select>
-                </div>
-                <?php
-                #Retrieve All Movie Genres to create checkbox
-                $genres_list_query = "SELECT GROUP_CONCAT(DISTINCT genre SEPARATOR ', ') AS genres FROM movie;";
-                $genres_list_result = $db->query($genres_list_query)->fetch_assoc();    
-                $genres_array = explode(', ', $genres_list_result['genres']);
-                $genres_array = array_unique($genres_array);
-                sort($genres_array);
-                // echo implode(', ', $genres_array);
-                ?>
-                    <div class="dropdown-genre">
-                    <button class="dropbtn-genre">Genre</button>
-                        <div class="dropdown-genre-content">
+                <td  colspan="4" class="filter-row">
+                <form id='sort-form'
+                method='POST' 
+                action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                <div class='filter-container'>
+                    <div>
+                        <input type="hidden" id="selected-status" name="selected-status" value="">
+                        <button onclick="submitForm(this.value)" value='default' id='showing-button' class='dropbtn-genre'>Showing</button>
+                        <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button' class='dropbtn-genre'>Coming Soon</button>
+                    </div>
+                    <div class="sort-select">
+                    <label for="sort-select">Sort by: </label>
+                    <select id="sort-select" name='sort-select'>
+                        <option value="default" <?php if ($sort_type == 'default') echo 'selected'; ?>>Default</option>
+                        <option value="alphabetical" <?php if ($sort_type == 'alphabetical') echo 'selected'; ?>>Alphabetical</option>
+                        <option value="rating" <?php if ($sort_type == 'rating') echo 'selected'; ?>>Rating</option>
+                    </select>
+                    </div>
+                    <div class="theatre-select">
+                    <label for="theatre-select">Select Cinema: </label>
+                    <select id="theatre-select" name='theatre-select'>
+                        <option value="default" <?php if ($requested_cinema == 'default') echo 'selected'; ?>>All MovieVerse Cinema</option>
                         <?php
-                        // if (in_array('Action', $requested_genre_arr)){
-                        //     echo "Found";
-                        //   }
-                        //   else {
-                        //     echo "Not Found";
-                        //   }
-                        foreach ($genres_array as $genre) {
-                            // Output a checkbox for each genre
-                            $checked = in_array($genre, $requested_genre_arr) ? 'checked' : '';
-                            echo '
-                            <input type="checkbox" id="' . $genre . '" name="genres[]" value="' . $genre . '" ' . $checked . '>
-                            <label for="' . $genre . '">' . $genre . '</label><br>';
+                        $theatre_list_query = "SELECT * FROM theatre" ;
+                        $theatre_list_result = $db->query($theatre_list_query);
+                        $theatre_dict = array();
+                        $theatre_name = array();
+                        if ($theatre_list_result){
+                            while ($row = $theatre_list_result->fetch_assoc()){
+                                $theatre_dict[$row['name']] = $row;
+                                $theatre_name[] = $row['name'];
+                            }
+                        }
+                        foreach ($theatre_name as $name) {
+                            $theatre_id = $theatre_dict[$name]['id']; // Get the theater ID from the $theatre_dict array
+                            echo '<option value="' . $theatre_id . '" ';
+                            if ($requested_cinema == $theatre_id) {
+                                echo 'selected';
+                            }
+                            echo '>' . $name . '</option>';
                         }
                         ?>
-                        <input type="hidden" id="selected-genres" name="selected-genres" value="">
-                        </div>
+                    </select>
                     </div>
-                <button type='submit' onclick="submitForm()" >Button</button>
-            </div>
-            </form>
-        </td>
-    </tr>
+                    <?php
+                    #Retrieve All Movie Genres to create checkbox
+                    $genres_list_query = "SELECT GROUP_CONCAT(DISTINCT genre SEPARATOR ', ') AS genres FROM movie;";
+                    $genres_list_result = $db->query($genres_list_query)->fetch_assoc();    
+                    $genres_array = explode(', ', $genres_list_result['genres']);
+                    $genres_array = array_unique($genres_array);
+                    sort($genres_array);
+                    // echo implode(', ', $genres_array);
+                    ?>
+                        <div class="dropdown-genre">
+                        <button class="dropbtn-genre">Genre</button>
+                            <div class="dropdown-genre-content">
+                            <?php
+                            // if (in_array('Action', $requested_genre_arr)){
+                            //     echo "Found";
+                            //   }
+                            //   else {
+                            //     echo "Not Found";
+                            //   }
+                            foreach ($genres_array as $genre) {
+                                // Output a checkbox for each genre
+                                $checked = in_array($genre, $requested_genre_arr) ? 'checked' : '';
+                                echo '
+                                <input type="checkbox" id="' . $genre . '" name="genres[]" value="' . $genre . '" ' . $checked . '>
+                                <label for="' . $genre . '">' . $genre . '</label><br>';
+                            }
+                            ?>
+                            <input type="hidden" id="selected-genres" name="selected-genres" value="">
+                            </div>
+                        </div>
+                    <button type='submit' onclick="submitForm()" class='dropbtn-genre'>Search</button>
+                </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <table class='movie-list' border="0">
         <?php
         $i = 0;
         while($i<count($requested_movie_dict)){
@@ -227,6 +230,7 @@
         }
         ?>
   </table>
+    </div>
   <custom-footer></custom-footer>
 </body>
 </html>

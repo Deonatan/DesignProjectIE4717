@@ -1,3 +1,18 @@
+.wrapper {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(rgba(0, 18, 50, 0.84), rgba(0, 0, 0, 0.95)),
+        url("../public/background.jpg") bottom;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 18, 50);
+    padding-top: 25px;
+    min-height: 83vh;
+}
+
 .movie-poster{
     margin:0px;
 }
@@ -8,13 +23,13 @@
     text-align: center;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     padding-top: 5px;
+    background-color: white;
 }
 
 .movie-list{
     margin: auto;
     margin-top: 30px;
 }
-
 
 td {
     padding: 5px; /* Optional cell padding */
@@ -50,6 +65,7 @@ td {
 
 a{
     text-decoration: none;
+    color: black;
 }
 
 /*Filter Container*/
@@ -64,11 +80,22 @@ a{
 
 /*Genre Drop Down*/
 .dropbtn-genre {
-    background-color: #04AA6D;
+    /* background-color: #04AA6D;
     color: white;
     padding: 16px;
     font-size: 16px;
+    border: none; */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
     border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background 
+    color */
+    /* width: 100%; */
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   
 .dropdown-genre {
@@ -79,7 +106,7 @@ display: inline-block;
 .dropdown-genre-content {
 display: none;
 position: absolute;
-background-color: #f1f1f1;
+background-color: black;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
@@ -96,4 +123,4 @@ display: block;
 
 .dropdown-genre:hover .dropdown-genre-content {display: block;}
 
-.dropdown-genre:hover .dropbtn-genre {background-color: #3e8e41;}
+.dropdown-genre:hover .dropbtn-genre {background-color: #0056b3;}

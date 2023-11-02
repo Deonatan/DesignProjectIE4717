@@ -8,7 +8,8 @@
     <script src="../js/custom-footer.js" type="text/javascript" defer></script>
 </head>
 <body>
-    <custom-navbar></custom-navbar>
+    <custom-navbar type='child'></custom-navbar>
+    <div class='wrapper'>
     <?php
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
@@ -83,6 +84,7 @@
                     </div>
             </div>
         </div>
+    </div>
     </div>
     <custom-footer></custom-footer>
 </body>
