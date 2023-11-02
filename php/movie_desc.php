@@ -31,19 +31,24 @@
         }
     }
 
-    // Convert the array of movie IDs to a comma-separated string
-    $theatre_id_list = implode(', ', $theatre_ids);
-
-    //Get Theatre Names
-    $theatre_name_query = "SELECT name FROM theatre WHERE id IN ($theatre_id_list)";
-    $theatre_name_result = $db->query($theatre_name_query);
-    $theatreNames = array(); // Create an array to store the theatre names
-    while ($row = $theatre_name_result->fetch_assoc()) {
-        $theatreNames[] = $row['name']; // Add each name to the array
+    if (!empty($theatre_ids)) {
+        // Convert the array of movie IDs to a comma-separated string
+        $theatre_id_list = implode(', ', $theatre_ids);
+    
+        // Get Theatre Names
+        $theatre_name_query = "SELECT name FROM theatre WHERE id IN ($theatre_id_list)";
+        $theatre_name_result = $db->query($theatre_name_query);
+        $theatreNames = array(); // Create an array to store the theatre names
+        while ($row = $theatre_name_result->fetch_assoc()) {
+            $theatreNames[] = $row['name']; // Add each name to the array
+            $theatreNamesString = implode(', ', $theatreNames);
+        }
+    } else {
+        // Handle the case when $theatre_ids is empty (no need to search for theatre names)
+        $theatreNamesString = 'Coming Soon'; // Initialize an empty array or handle it as needed
     }
 
     // Convert the array to a comma-separated string
-    $theatreNamesString = implode(', ', $theatreNames);
 
     // foreach ($items as $key => $value) {
     //     echo $key . ": " . $value . "<br>";

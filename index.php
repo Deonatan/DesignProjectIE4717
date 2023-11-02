@@ -22,12 +22,13 @@
     $sort_type = 'default';
     $requested_cinema = 'default';
     $requested_genre = 'default';
-    $status = 'default'; 
+    $requested_status = 'default'; 
     #Get Filter Value if POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sort_type = $_POST['sort-select'];
         $requested_cinema = $_POST['theatre-select'];
         $requested_genre = $_POST['selected-genres'];
+        $requested_status = $_POST['selected-status'];
     }
 
     #Get All Movie Id
@@ -51,14 +52,14 @@
     }
 
     // 1. SHOWING / COMING SOON FILTER
-    if ($status=='default'){
+    if ($requested_status=='default'){
         $movie_id_str = implode(', ', $showing_movie_id_arr);
     }else{
         $movie_id_str = implode(', ', array_diff($all_movie_id_arr, $showing_movie_id_arr));
     }
     
     //2.CINEMA FILTER
-    if ($requested_cinema != 'default') {
+    if ($requested_cinema != 'default' && $requested_status == 'default') {
         //GET MOVIE ID FROM REQUESTED CINEMA
         $movie_id_from_schedule = "SELECT movie_id FROM movie_schedule WHERE theatre_id IN($requested_cinema)";
         // Execute the SQL query
@@ -127,6 +128,11 @@
             method='POST' 
             action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class='filter-container'>
+                <div>
+                    <input type="hidden" id="selected-status" name="selected-status" value="">
+                    <button onclick="submitForm(this.value)" value='default' id='showing-button'>Showing</button>
+                    <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button'>Coming Soon</button>
+                </div>
                 <div class="sort-select">
                 <label for="sort-select">Sort by: </label>
                 <select id="sort-select" name='sort-select'>

@@ -1,4 +1,4 @@
-function submitForm() {
+function submitForm(status = 'default') {
     var selectedValue = document.getElementById('sort-select').value;
     var form = document.getElementById('sort-form');
     // Get all selected checkboxes
@@ -10,6 +10,7 @@ function submitForm() {
     });
     // Set the hidden input value
     document.getElementById('selected-genres').value = selectedValues.join(',');
+    document.getElementById('selected-status').value = status
     // console.log(document.getElementById('selected-genres').value)
     form.submit();
 }
