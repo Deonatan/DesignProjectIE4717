@@ -1,14 +1,18 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+.background-wrapper {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(rgba(0, 18, 50, 0.84), rgba(0, 0, 0, 0.95)),
+        url("../public/background.jpg") bottom;
+    background-size: cover;
+    color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: rgb(0, 18, 50);
+    padding-top: 25px;
+    height: 90vh;
 }
 
 .container {
