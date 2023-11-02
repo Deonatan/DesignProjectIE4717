@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 body {
     text-align: center;
+}
+
+.background{
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(rgba(0, 18, 50, 0.84), rgba(0, 0, 0, 0.95)),
+        url("../public/background.jpg") bottom;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 18, 50);
+    height: 92vh;
 }
 
 button {
@@ -53,4 +69,8 @@ button:hover {
 .detail {
     color: #009900;
     padding-right: 40px;
+}
+
+.qr-code{
+    margin: 0px;
 }

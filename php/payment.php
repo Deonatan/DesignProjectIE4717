@@ -21,13 +21,13 @@
     // check if post method
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Get the value of the "clicked-box" input field
-        $selectedSeat = $_POST["selected-seat"];
-        $selectedTime = $_POST["selected-time"];
+        $selectedSeat = $_POST["seat-form"];
+        $selectedTime = $_POST["time-form"];
     }
     ?>
     <custom-navbar type="child"></custom-navbar>
-    <div>
-        <img src="../public/paymentqr.png" alt="payment qr">
+    <div class="background">
+        <img src="../public/paymentqr.png" class="qr-code" alt="payment qr">
         <br>
         <div class="receipt">
             <div class="header">
