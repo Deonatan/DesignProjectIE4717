@@ -128,11 +128,6 @@
                 method='POST' 
                 action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div class='filter-container'>
-                    <div>
-                        <input type="hidden" id="selected-status" name="selected-status" value="">
-                        <button onclick="submitForm(this.value)" value='default' id='showing-button' class='dropbtn-genre'>Showing</button>
-                        <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button' class='dropbtn-genre'>Coming Soon</button>
-                    </div>
                     <div class="sort-select">
                     <label for="sort-select">Sort by: </label>
                     <select id="sort-select" name='sort-select'>
@@ -177,7 +172,7 @@
                     // echo implode(', ', $genres_array);
                     ?>
                         <div class="dropdown-genre">
-                        <button class="dropbtn-genre">Genre</button>
+                        <button class="dropbtn-genre button-margin">Genre</button>
                             <div class="dropdown-genre-content">
                             <?php
                             // if (in_array('Action', $requested_genre_arr)){
@@ -197,7 +192,12 @@
                             <input type="hidden" id="selected-genres" name="selected-genres" value="">
                             </div>
                         </div>
-                    <button type='submit' onclick="submitForm()" class='dropbtn-genre'>Search</button>
+                    <button type='submit' onclick="submitForm()" class='dropbtn-genre button-margin'>Search</button>
+                    <div>
+                        <input type="hidden" id="selected-status" name="selected-status" value="">
+                        <button onclick="submitForm(this.value)" value='default' id='showing-button' class='dropbtn-genre button-margin'>Showing</button>
+                        <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button' class='dropbtn-genre button-margin'>Coming Soon</button>
+                    </div>
                 </div>
                 </form>
             </td>
