@@ -40,10 +40,6 @@ td {
     text-align: left;
 }
 
-.sort-select{
-    margin-left: 10px;
-}
-
 /*Zoom Effect*/
 .movie-container {
     position: relative;
@@ -76,18 +72,27 @@ a{
 }
 
 .theatre-select{
-    margin-left: 30px;
+    margin-left: 20px;
 }
+
+.filter-btn{
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background 
+    color */
+    /* width: 100%; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
 /*Genre Drop Down*/
 .dropbtn-genre {
-    /* background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none; */
-    background-color: #007bff; /* Button background color */
-    color: #fff; /* Text color */
+    background-color: white; /* Button background color */
+    color: black; /* Text color */
     border: none;
     padding: 10px 10px;
     border-radius: 5px;
@@ -124,8 +129,79 @@ display: block;
 
 .dropdown-genre:hover .dropdown-genre-content {display: block;}
 
-.dropdown-genre:hover .dropbtn-genre {background-color: #0056b3;}
+.dropdown-genre:hover .dropbtn-genre {background-color: gray;}
 
 .button-margin{
-    margin-left:30px;
+    margin-left:20px;
 }
+
+/* Sort Select Styling*/
+/* Style the container div */
+.sort-select {
+    display: inline-block; /* Make it inline to flow with the content */
+    /* margin-right: 20px; Add some margin for spacing */
+  }
+  
+  /* Style the label */
+  .sort-select label {
+    font-weight: bold; /* Make the label text bold */
+    margin-right: 10px; /* Add some space between the label and the select element */
+  }
+  
+  /* Style the select element */
+  .sort-select select {
+    padding: 5px; /* Add padding to the select element */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #fff; /* Set a white background color */
+    color: #333; /* Set the text color */
+    width: 150px; /* Set a specific width for the select element */
+  }
+  
+  /* Style the options within the select element */
+  .sort-select select option {
+    background-color: #fff; /* Set a white background color for options */
+    color: #333; /* Set the text color for options */
+  }
+  
+  /* Style the selected option */
+  .sort-select select option[selected] {
+    font-weight: bold; /* Make the selected option text bold */
+  }
+
+/* Select Cinema Styling*/
+/* Style the container div */
+.theatre-select {
+    display: inline-block; /* Make it inline to flow with the content */
+    /* margin-right: 20px; */
+  }
+  
+  /* Style the label */
+  .theatre-select label {
+    font-weight: bold; /* Make the label text bold */
+    margin-right: 10px; /* Add some space between the label and the select element */
+  }
+  
+  /* Style the select element */
+  .theatre-select select {
+    padding: 5px; /* Add padding to the select element */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #fff; /* Set a white background color */
+    color: #333; /* Set the text color */
+    width: 150px; /* Set a specific width for the select element */
+  }
+  
+  /* Style the options within the select element */
+  .theatre-select select option {
+    background-color: #fff; /* Set a white background color for options */
+    color: #333; /* Set the text color for options */
+  }
+  
+  /* Style the selected option */
+  .theatre-select select option[selected] {
+    font-weight: bold; /* Make the selected option text bold */
+  }
+  

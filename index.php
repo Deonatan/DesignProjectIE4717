@@ -140,7 +140,7 @@
                     <div class="theatre-select">
                     <label for="theatre-select">Select Cinema: </label>
                     <select id="theatre-select" name='theatre-select'>
-                        <option value="default" <?php if ($requested_cinema == 'default') echo 'selected'; ?>>All MovieVerse Cinema</option>
+                        <option value="default" <?php if ($requested_cinema == 'default') echo 'selected'; ?>>All Cinema</option>
                         <?php
                         $theatre_list_query = "SELECT * FROM theatre" ;
                         $theatre_list_result = $db->query($theatre_list_query);
@@ -193,11 +193,11 @@
                             <input type="hidden" id="selected-genres" name="selected-genres" value="">
                             </div>
                         </div>
-                    <button type='submit' onclick="submitForm()" class='dropbtn-genre button-margin'>Search</button>
+                    <button type='submit' onclick="submitForm()" class='filter-btn button-margin'>Search</button>
                     <div>
                         <input type="hidden" id="selected-status" name="selected-status" value="">
-                        <button onclick="submitForm(this.value)" value='default' id='showing-button' class='dropbtn-genre button-margin'>Showing</button>
-                        <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button' class='dropbtn-genre button-margin'>Coming Soon</button>
+                        <button onclick="submitForm(this.value)" value='default' id='showing-button' class='filter-btn button-margin'>Showing</button>
+                        <button onclick="submitForm(this.value)" value='coming-soon' id='coming-soon-button' class='filter-btn button-margin'>Coming Soon</button>
                     </div>
                 </div>
                 </form>
