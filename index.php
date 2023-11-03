@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+    session_start();
     $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
@@ -173,7 +174,7 @@
                     // echo implode(', ', $genres_array);
                     ?>
                         <div class="dropdown-genre">
-                        <button class="dropbtn-genre button-margin">Genre</button>
+                        <button type="reset" class="dropbtn-genre button-margin">Genre</button>
                             <div class="dropdown-genre-content">
                             <?php
                             // if (in_array('Action', $requested_genre_arr)){
