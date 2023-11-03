@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/success_payment.css">
     <script src="../js/custom-navbar.js" type="text/javascript" ></script>
+    <script src="../js/custom-footer.js" type="text/javascript" defer></script>
 </head>
 <body>
     <?php
@@ -22,6 +23,11 @@
             $schedule_id = mysqli_fetch_assoc($db->query($get_schedule_id_query))["id"];
             $insert_query = "INSERT INTO transaction_history (user_id, schedule_id,selected_seat, payment_status) VALUES ($user_id, $schedule_id, '$selected_seat','Successful')";
             $db->query($insert_query);
+            echo '<script>
+                    setTimeout(function() {
+                        window.location.href = "../index.php"; 
+                    }, 1000); 
+                </script>';
         }
     ?>
     <custom-navbar type="child"/>
@@ -32,5 +38,6 @@
             <p>Thank you for your purchase!</p>
         </div>
     </div>
+    <custom-footer></custom-footer>
 </body>
 </html>
