@@ -11,6 +11,7 @@
 </head>
 <body>
     <?php
+    $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
@@ -32,13 +33,14 @@
 
     ?>
     <custom-navbar type='child'></custom-navbar>
-    <div class='container'>
+    <div class='wrapper'>
+    <h1>MovieVerse Cinema List</h1>
+    <table class='theatre-table' border="1">
     <form id="theatre-form" method="POST" action="../index.php">
     <input type="hidden" name="theatre-select" id='theatre-select-input' value="">
     <input type="hidden" name="sort-select"  id ='sort-select-input' value="">
     <input type="hidden" name="selected-genres" id='selected-genres-input' value="">
     <input type="hidden" name="selected-status"  id ='selected-status-input' value="">
-    <table class='theatre-table' border="1">
         <tr class='centered-text'>
             <td>Theatre Name</td>
             <td>Location</td>
@@ -51,8 +53,8 @@
             echo '</tr>';
     }
         ?>
-    </table>
     </form>
+    </table>
     </div>
     <custom-footer></custom-footer>
 </body>

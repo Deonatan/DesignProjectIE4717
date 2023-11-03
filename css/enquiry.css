@@ -1,0 +1,30 @@
+.wrapper{
+    margin-left: 45px;
+}
+
+.input-sizing1{
+    width: 150px;
+    height:20px;
+}
+
+.input-sizing2{
+    width: 400px;
+    height:120px;
+}
+
+tr td {
+    padding-bottom: 15px; /* Adjust the padding as needed */
+}
+
+.submit-button {
+    cursor: pointer;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
