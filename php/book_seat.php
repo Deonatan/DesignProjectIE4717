@@ -12,6 +12,9 @@
     <custom-navbar type="child"/>
     <div class="body-wrapper">
     <?php
+        //set recent page
+        session_start();
+        $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
         // connect db
         @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
