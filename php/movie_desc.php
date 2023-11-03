@@ -32,6 +32,17 @@
         }
     }
 
+    //GET SHOWING MOVIE ID
+    #Get Showing Movie ID
+    $showing_movie_id_query = "SELECT movie_id FROM movie_schedule";
+    $showing_movie_id_result = $db->query($showing_movie_id_query);
+    $showing_movie_id_arr = array();
+    if ($showing_movie_id_result) {
+        while ($row = $showing_movie_id_result->fetch_assoc()) {
+            $showing_movie_id_arr[] = $row['movie_id'];
+        }
+    }
+
     if (!empty($theatre_ids)) {
         // Convert the array of movie IDs to a comma-separated string
         $theatre_id_list = implode(', ', $theatre_ids);
@@ -78,10 +89,15 @@
                     <strong>Synopsis</strong><br>
                     <span><?php echo $movie_data['synopsis']?></span><br><br>
                     <strong>Playing At</strong><br>
-                    <span><?php echo $theatreNamesString ?></span>
-                    <div class="book-now-container">
-                        <a href="book_seat.php?movie_id=<?php echo $requested_id; ?>" class="book-now-button">Book Now</a>
-                    </div>
+                    <span><?php echo $theatreNamesString ?></span><br><br>
+                    <?php
+                    if (!in_array($requested_id, $showing_movie_id_arr)) {
+                        // Movie is not showing, so hide the "Book Now" button
+                    } else {
+                        // Movie is showing, display the "Book Now" button
+                        echo '<a href="book_seat.php?movie_id=' . $requested_id . '" class="book-now-button">Book Now</a>';
+                    }
+                    ?>
             </div>
         </div>
     </div>
