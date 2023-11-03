@@ -17,8 +17,9 @@
     echo "Error: Could not connect to database.  Please try again later.";
     exit;
     }
-
-    $requested_userid = 1;
+    session_start();
+    $user_id = $_SESSION["user_id"];
+    $requested_userid = $user_id;
     $transaction_history_query = "SELECT u.username AS 'Username',
     mt.title AS 'Movie Title',
     CONCAT(ms.start_time, ' - ', ms.end_time) AS 'Playing Time',
@@ -28,7 +29,7 @@
     JOIN users u ON th.user_id = u.id
     JOIN movie_schedule ms ON th.schedule_id = ms.id
     JOIN movie mt ON ms.movie_id = mt.id
-    WHERE th.user_id = 1;
+    WHERE th.user_id = $requested_userid;
     ";
 
     $result = $db->query($transaction_history_query);
@@ -65,14 +66,18 @@
     <custom-navbar type='child'></custom-navbar>
     <div class='container'>
     <table class='transaction-history-table' border="1">
-        <tr class=''>
+    <?php
+    if (empty($movie_titles)) {
+        echo '<tr><td colspan="5">No Transaction History Found</td></tr>';
+    } else {
+        echo '
+        <tr class="">
             <td>Username</td>
             <td>Movie Title</td>
             <td>Playing Time</td>
             <td>Selected Seat</td>
             <td>Payment Status</td>
-        </tr>
-        <?php
+        </tr>';
         foreach ($movie_titles as $movie_title) {
             if (array_key_exists($movie_title, $movie_data)) {
                 foreach ($movie_data[$movie_title] as $details) {
@@ -88,7 +93,9 @@
                 echo '<tr><td colspan="5">Movie title not found in data: ' . $movie_title . '</td></tr>';
             }
         }
-        ?>
+    }
+    ?>
+
     </table>
     </div>
     <custom-footer></custom-footer>
