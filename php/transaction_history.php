@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+    $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 

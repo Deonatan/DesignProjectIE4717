@@ -10,6 +10,7 @@
 <body>
 <?php
     // Check if the form was submitted
+    $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve form data
         $name = $_POST["name"];
