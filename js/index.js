@@ -11,6 +11,10 @@ function submitForm(status = 'default') {
     // Set the hidden input value
     document.getElementById('selected-genres').value = selectedValues.join(',');
     document.getElementById('selected-status').value = status
+    if (status=='coming-soon'){
+        document.getElementById('theatre-select').value = 'default'
+    }
+
     // console.log(document.getElementById('selected-genres').value)
     form.submit();
 }
