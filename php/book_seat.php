@@ -19,7 +19,6 @@
         if ($_SERVER['REQUEST_METHOD'] == 'GET'){
             $movie_id = $_GET['movie_id'];
         }
-        // $movie_id = 1;
 
         //get movie details
         $get_details = "SELECT * FROM movie WHERE id=".$movie_id;
@@ -35,6 +34,7 @@
 
     ?>
     <form id="grid-form" method="post" action="../php/payment.php" >
+        <input type="hidden" name="movie-id" value="<?php echo $movie_id?>">
         <input type="hidden" id="seat-form" name="seat-form" value="">
         <input type="hidden" id="time-form" name="time-form" value="">
         <input type="hidden" id="total-price" name="price-form" value="">
@@ -48,7 +48,14 @@
                 $start_time = substr($schedule['start_time'],0,5);
                 $end_time = substr($schedule['end_time'],0,5);
                 $price = $schedule['price'];
-                echo "<option value='$price%$start_time-$end_time'>$start_time-$end_time</option>";
+                $schedule_id = $schedule['id'];
+                $get_occupied_seat_query = "SELECT * FROM transaction_history WHERE schedule_id=$schedule_id";
+                $raw_seat_data = $db->query($get_occupied_seat_query);
+                $occupied_seats = "";
+                while ($row = $raw_seat_data->fetch_assoc()){
+                    $occupied_seats .= ",".$row["selected_seat"];
+                }
+                echo "<option value='$price%$start_time-$end_time%$occupied_seats'>$start_time-$end_time </option>";
             }
         ?>
         </select>
@@ -89,8 +96,8 @@
                 <div class="seat">B1</div>
                 <div class="seat">B2</div>
                 <div class="seat">B3</div>
-                <div class="seat occupied">B4</div>
-                <div class="seat occupied">B5</div>
+                <div class="seat ">B4</div>
+                <div class="seat ">B5</div>
                 <div class="seat">B6</div>
                 <div class="seat">B7</div>
                 <div class="seat">B8</div>
@@ -102,8 +109,8 @@
                 <div class="seat">C4</div>
                 <div class="seat">C5</div>
                 <div class="seat">C6</div>
-                <div class="seat occupied">C7</div>
-                <div class="seat occupied">C8</div>
+                <div class="seat ">C7</div>
+                <div class="seat ">C8</div>
             </div>
             <div class="row">
                 <div class="seat">D1</div>
@@ -118,8 +125,8 @@
             <div class="row">
                 <div class="seat">E1</div>
                 <div class="seat">E2</div>
-                <div class="seat occupied">E3</div>
-                <div class="seat occupied">E4</div>
+                <div class="seat ">E3</div>
+                <div class="seat ">E4</div>
                 <div class="seat">E5</div>
                 <div class="seat">E6</div>
                 <div class="seat">E7</div>
@@ -142,8 +149,8 @@
                 <div class="seat couple-seat">G3</div>
                 <div class="seat couple-seat">G4</div>
                 <div class="seat couple-seat">G5</div>
-                <div class="seat couple-seat occupied">G6</div>
-                <div class="seat couple-seat occupied">G7</div>
+                <div class="seat couple-seat ">G6</div>
+                <div class="seat couple-seat ">G7</div>
                 <div class="seat couple-seat">G8</div>
             </div>
             <div class="row">

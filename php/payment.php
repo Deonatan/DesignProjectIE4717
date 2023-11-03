@@ -23,6 +23,8 @@
         // Get the value of the "clicked-box" input field
         $selectedSeat = $_POST["seat-form"];
         $selectedTime = $_POST["time-form"];
+        $totlaPrice = $_POST["price-form"];
+        $movieId = $_POST["movie-id"];
     }
     ?>
     <custom-navbar type="child"></custom-navbar>
@@ -41,9 +43,17 @@
                 <div class="description">Selected seat:</div>
                 <div class="detail"><?php echo $selectedSeat?></div>
             </div>
+            <div class="item">
+                <div class="description">Total Price:</div>
+                <div class="detail">$<?php echo $totlaPrice?></div>
+            </div>
         </div>
-        <form action="../html/success-payment.html">
+        <form action="../php/success_payment.php" method="post">
             <button type="submit">Mark as paid</button>
+            <input type="hidden" name="movie_id" value="<?php echo $movieId?>">
+            <input type="hidden" name="selected_time" value="<?php echo $selectedTime?>">
+            <input type="hidden" name="selected_seat" value="<?php echo $selectedSeat?>">
+            <input type="hidden" name="total_price" value="<?php echo $totlaPrice?>">
         </form>
     </div>
 </body>
