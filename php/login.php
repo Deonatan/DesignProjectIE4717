@@ -23,9 +23,16 @@
             session_start();
             $_SESSION["user_id"] = $response["id"];
             echo "<div class='wrapper'><div class='status-container'><h1>Login Successful!</h1><p>Welcome to movieverse!</p></div></div>";
+            $redirect_url = isset($_SESSION["redirect_url"]) ? $_SESSION["redirect_url"] : "../index.php";
+            echo '<script>
+            setTimeout(function() {
+                window.location.href = "' . $redirect_url . '"; 
+            }, 1000); 
+        </script>';
         } else {
             echo "invalid";
         }
+    exit;
     ?>
 </body> 
 </html>
