@@ -10,7 +10,6 @@
 </head>
 <body>
     <?php
-    $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
     // Create a database connection
     @ $db = new mysqli('localhost', 'root', '', 'movieverse_db');
 
@@ -19,7 +18,14 @@
     exit;
     }
     session_start();
+    $_SESSION["redirect_url"] = $_SERVER["REQUEST_URI"];
+    if (!isset($_SESSION["user_id"])) {
+        // User is not logged in, redirect to the login page or show an access denied message.
+        header("Location: ../html/login.html");
+        exit();
+    }
     $user_id = $_SESSION["user_id"];
+
     $requested_userid = $user_id;
     $transaction_history_query = "SELECT u.username AS 'Username',
     mt.title AS 'Movie Title',
