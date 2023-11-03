@@ -30,7 +30,6 @@
         $requested_genre = $_POST['selected-genres'];
         $requested_status = $_POST['selected-status'];
     }
-
     #Get All Movie Id
     $all_movie_id_query = "SELECT id FROM movie";
     $all_movie_id_result = $db->query($all_movie_id_query);
