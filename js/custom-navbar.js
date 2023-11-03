@@ -98,6 +98,7 @@ class Header extends HTMLElement {
         <a href="${path}index.php">Movies</a>
         <a href="${path}php/theatre.php">Theatre</a>
         <a href="${path}php/transaction_history.php">Transactions</a>
+        <a href="${path}php/enquiry.php">Enquiry</a>
         <div class="dropdown">
             <button class="dropbtn">    
             <i class="fa fa-caret-down"></i>
