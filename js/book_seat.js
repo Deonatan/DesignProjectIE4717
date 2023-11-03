@@ -75,15 +75,21 @@ const seatMapping = {
   63: "H8",
 };
 
-let ticketPrice = +timeSelect.value.split("%")[0];
-let movieTime = timeSelect.value.split("%")[1];
-let occupiedSeats = timeSelect.value
-  .split("%")[2]
-  .split(",")
-  .map((str) => str.trim())
-  .filter((str) => str !== "");
+let ticketPrice = "";
+let movieTime = "";
+let occupiedSeats = "";
 
-console.log(occupiedSeats);
+if (timeSelect.value) {
+  ticketPrice = +timeSelect.value.split("%")[0];
+  movieTime = timeSelect.value.split("%")[1];
+  occupiedSeats = timeSelect.value
+    .split("%")[2]
+    .split(",")
+    .map((str) => str.trim())
+    .filter((str) => str !== "");
+
+  console.log(occupiedSeats);
+}
 
 populateUI();
 
