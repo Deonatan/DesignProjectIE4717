@@ -1,4 +1,29 @@
 .transaction-history-table{
     margin: auto;
     margin-top: 30px;
+    border-collapse: collapse;
+}
+
+.transaction-history-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+h1{
+    margin-bottom: 0px;
+}
+
+.wrapper{
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(rgba(0, 18, 50, 0.84), rgba(0, 0, 0, 0.95)),
+        url("../public/background.jpg") bottom;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 18, 50);
+    padding-top: 25px;
+    min-height: 79.1vh;
 }

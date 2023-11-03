@@ -35,8 +35,6 @@
     $result = $db->query($transaction_history_query);
 
     $movie_data = array(); // Initialize an empty dictionary
-
-    $movie_data = array(); // Initialize an empty dictionary
     $movie_titles = array(); // Initialize an empty array to store all movie titles
     
     if ($result) {
@@ -64,7 +62,8 @@
 
     ?>
     <custom-navbar type='child'></custom-navbar>
-    <div class='container'>
+    <div class='wrapper'>
+    <h1>Transaction History</h1>
     <table class='transaction-history-table' border="1">
     <?php
     if (empty($movie_titles)) {
