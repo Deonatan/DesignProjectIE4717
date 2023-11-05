@@ -194,7 +194,7 @@
                             <input type="hidden" id="selected-genres" name="selected-genres" value="">
                             </div>
                         </div>
-                    <button type='submit' onclick="submitForm()" class='filter-btn button-margin'>Search</button>
+                    <!-- <button type='submit' onclick="submitForm()" class='filter-btn button-margin'>Search</button> -->
                     <div>
                         <input type="hidden" id="selected-status" name="selected-status" value="">
                         <button onclick="submitForm(this.value)" value='default' id='showing-button' class='filter-btn button-margin'>Showing</button>
